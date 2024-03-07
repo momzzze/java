@@ -45,5 +45,6 @@ public class SecondClass {
         }
         String s1= (isDomestic)?"This car is domestic": "This car is not domestic";
         System.out.println(s1);
+
     }
 }
