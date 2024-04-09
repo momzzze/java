@@ -32,9 +32,16 @@ public class Main {
 //                System.out.println(res1);
 //                System.out.println(res2);
 //                System.out.println(res3);
-        System.out.println(hasTeen(9, 99, 19));
-        System.out.println(hasTeen(23, 15, 42));
-        System.out.println(hasTeen(22, 23, 34));
+
+//        System.out.println(hasTeen(9, 99, 19));
+//        System.out.println(hasTeen(23, 15, 42));
+//        System.out.println(hasTeen(22, 23, 34));
+
+        System.out.println(getDurationString(3945));  // this is the first test case
+        System.out.println(getDurationString(65, 45));
+        System.out.println(getDurationString(-3945));
+        System.out.println(getDurationString(65, -45));
+        System.out.println(getDurationString(65, 145));
     }
 
     public static void printPositiveNegativeOrZero(int number) {
@@ -123,5 +130,26 @@ public class Main {
             return true;
         }
         return  false;
+    }
+
+
+    public  static String getDurationString(int seconds){
+      if(seconds < 0) {
+          return "Invalid data for seconds ("+ seconds+ "), must be positive integer value";
+      }
+          return getDurationString(seconds/60, seconds%60);
+
+    }
+    public  static String getDurationString(int minutes,int seconds){
+        if(minutes < 0) {
+            return "Invalid data for minutes ("+ seconds+ "), must be positive integer value";
+        }
+        if(seconds<=0||seconds>=59){
+            return "Invalid data for seconds("+ seconds+"), must be between 0 and 59";
+        }
+        int hours=minutes/60;
+        int remainingMinutes=minutes%60;
+        int remainingSeconds=seconds%60;
+        return hours+"h "+remainingMinutes+"m "+ remainingSeconds+"s";
     }
 }
